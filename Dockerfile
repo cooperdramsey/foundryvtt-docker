@@ -77,7 +77,7 @@ RUN addgroup --system --gid ${FOUNDRY_UID} foundry \
 
 VOLUME ["/data"]
 # HTTP Server
-EXPOSE 80/TCP
+EXPOSE 443/TCP
 # TURN Server
 # Not exposing TURN ports due to bug in Docker.
 # See: https://github.com/moby/moby/issues/11185
@@ -85,6 +85,6 @@ EXPOSE 80/TCP
 # EXPOSE 49152-65535/UDP
 
 ENTRYPOINT ["./entrypoint.sh"]
-CMD ["resources/app/main.js", "--port=80", "--headless", "--noupdate",\
+CMD ["resources/app/main.js", "--port=443", "--headless", "--noupdate",\
   "--dataPath=/data"]
 HEALTHCHECK --start-period=3m --interval=30s --timeout=5s CMD ./check_health.sh
