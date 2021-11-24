@@ -3,7 +3,7 @@ version: "3.8"
 
 services:
   foundry:
-    image: armyguy255a/foundryvtt:release
+    image: armyguy255a/foundryvtt-ssl:release
     hostname: my_foundry_host
     init: true
     restart: "no"
